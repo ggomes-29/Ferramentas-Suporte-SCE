@@ -31,7 +31,7 @@ echo. /////////  /////////
 echo.	S            I	         S
 ping localhost -n .100 >nul
 cls
- 
+  
 echo.    ////////      /////////   /////////
 echo.  //             //          //
 echo. //             //          //
