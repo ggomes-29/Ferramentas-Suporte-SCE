@@ -29,7 +29,7 @@ IF EXIST "C:\Program Files\SCE\AutoMagazine\Network" (SET APROG=1) ELSE ( SET AP
 CLS
 
 REM -------------------------- FIM DO REGISTRO DE VARIAVEIS ------------------------------------------------------------------------
-
+ 
 color 64
 cls
 echo.    //////// 
