@@ -1,0 +1,59 @@
+--BLOCO 1
+USE [master]
+GO
+CREATE DATABASE [PocketPDV] ON 
+( FILENAME = N'C:\SCE\AutoMagazine\Network\4.1\Database\PocketPDV_Data.MDF' ),
+( FILENAME = N'C:\SCE\AutoMagazine\Network\4.1\Database\PocketPDV_log.LDF' )
+ FOR ATTACH
+GO
+--FIM BLOCO 1
+
+--BLOCO 2
+USE [master]
+GO
+IF  EXISTS (SELECT * FROM sys.server_principals WHERE name = N'PocketPDV')
+DROP LOGIN [PocketPDV]
+GO
+CREATE LOGIN [PocketPDV] WITH PASSWORD=N'627311', DEFAULT_DATABASE=[PocketPDV],DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+GO
+EXEC master..sp_addsrvrolemember @loginame = N'PocketPDV', @rolename = N'sysadmin'
+GO
+USE [PocketPDV]
+GO
+IF  EXISTS (SELECT * FROM sys.database_principals WHERE name = N'PocketPDV')
+DROP USER [PocketPDV]
+GO
+CREATE USER [PocketPDV] FOR LOGIN [PocketPDV]
+GO
+USE [PocketPDV]
+GO
+EXEC sp_addrolemember N'db_owner', N'PocketPDV'
+GO
+--FIM BLOCO 2
+
+--BLOCO 3
+USE MASTER
+GO
+EXEC sp_addlinkedserver 
+   @server = 'AMFDADOS', 
+   @provider = 'Microsoft.Jet.OLEDB.4.0', 
+   @srvproduct = 'OLE DB Provider for Jet',
+   @datasrc = 'C:\SCE\AutoMagazine\Network\4.1\Database\Amfdados 2000.MDB'
+GO
+--FIM BLOCO 3
+
+--BLOCO 4
+USE MASTER
+GO
+EXEC sp_addlinkedsrvlogin 'AMFDADOS', 'false',null, 'sce leitura', ''
+GO
+--FIM BLOCO 4
+
+
+--BLOCO 5
+USE MASTER
+GO
+EXEC master.dbo.sp_serveroption @server=N'AMFDADOS', @optname=N'collation name', @optvalue=N'Latin1_General_CI_AS'
+GO
+--FIM BLOCO 5
+
