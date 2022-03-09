@@ -28,7 +28,7 @@ echo.        //   //
 echo.         // //
 echo.         // //
 echo. /////////  /////////
-echo.	S            I	         S
+echo.	S            I	         S 
 ping localhost -n .100 >nul
 cls
 echo.
