@@ -65,3 +65,7 @@ Correção do registro de variáveis. Agora ele faz toda a verificação no iní
 Melhorias na tela de fim de tarefas. Agora ele sabe se é estação ou servidor e não pede pra recolocar o nome do servidor
 Melhorias no design e cores dos menus
 Melhorias na inteligência de execução de tarefas
+
+VERSAO 2022.1608 (berinjela)
+Retirada de menu próprio para Registro e Desregistro de DLLs do integraçãocloud.
+Melhorias na confiabilidade do programa
