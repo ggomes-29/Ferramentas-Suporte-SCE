@@ -67,5 +67,6 @@ Melhorias no design e cores dos menus
 Melhorias na inteligência de execução de tarefas
 
 VERSAO 2022.1608 (berinjela)
+
 Retirada de menu próprio para Registro e Desregistro de DLLs do integraçãocloud.
 Melhorias na confiabilidade do programa
